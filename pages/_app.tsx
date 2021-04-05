@@ -1,13 +1,19 @@
+import { Fragment } from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 import "../styles/main.css";
 import "../styles/pages.css";
+import "../styles/widgets.css";
+import "../styles/decryption.css";
 
 import Sidebar from "../components/Sidebar";
-import { Fragment } from "react";
+import { EnvDetection } from "../components/EnvDetection";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
   return (
     <Fragment>
       <Head>
@@ -23,6 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Sidebar />
 
         <div className="content">
+          {router.route !== "/" ? <EnvDetection /> : null}
           <Component {...pageProps} />
         </div>
       </div>

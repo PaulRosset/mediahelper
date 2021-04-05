@@ -1,0 +1,142 @@
+.keySystemsDisplayer {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.keySystem {
+  padding: 5px 20px;
+  border-radius: 10px;
+  color: white;
+  margin: 5px;
+  font-weight: bold;
+  width: fit-content;
+}
+
+.keySystem--widevine {
+  background-color: #7c6eff;
+}
+
+.keySystem--playready {
+  background-color: #f5a336;
+}
+
+.keySystem--fairplay {
+  background-color: #50ab29;
+}
+
+.keySystem--default {
+  background-color: #24a9fa;
+}
+
+.showHDCP {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.hdcpResultContainerPerKeySystem {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 2px solid;
+}
+
+.hdcpResult {
+  font-weight: bold;
+}
+
+.advancedDetectionContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.labelTitle {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.emeContainerForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.formSelfBox {
+  display: flex;
+}
+
+.formSelfBox > input {
+  align-self: center;
+  margin: 0 5px;
+}
+
+.formSelfText {
+  display: flex;
+  flex-direction: column;
+}
+
+.formSelfText > input {
+  width: 100%;
+  border: none;
+  padding: 7px 5px;
+  border-radius: 5px;
+  margin: 0px 5px 10px 0;
+  box-shadow: rgb(35 38 59 / 5%) 0px 0px 0px 2px,
+    rgb(38 43 59 / 20%) 0px 1px 3px 0px;
+}
+
+.capabilitiesPush {
+  margin: 5px 0;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  padding: 2px 0;
+  cursor: pointer;
+}
+
+.formEME {
+  width: 35%;
+}
+
+.codeDisplayPosition {
+  width: 50%;
+  height: fit-content;
+  align-self: center;
+}
+
+.codeContainer {
+  background: rgb(21, 21, 21);
+  padding: 15px 20px 12px 22px;
+  line-height: 1.75;
+  border-radius: 8px;
+}
+
+.submitEMEConfiguration {
+  width: 100%;
+  margin: 10px 0;
+  border: 0;
+  outline: 0;
+  padding: 10px 0;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submitEMEConfiguration:hover {
+  text-decoration: underline;
+}
+
+.errorAdvancedEME {
+  color: #db2828;
+}
+
+.resultEMEAdvanced {
+  display: flex;
+  flex-direction: column;
+  border-top: solid 2px;
+  padding-top: 10px;
+}

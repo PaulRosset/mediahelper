@@ -8,3 +8,38 @@
 .widget-container h1 {
   text-decoration: underline;
 }
+
+.persist-widget-container {
+  position: absolute;
+  display: inline-flex;
+  margin: 0 5px;
+  left: 95%;
+  top: 4%;
+}
+
+.options-icons {
+  box-sizing: content-box;
+  height: 25px;
+  width: 25px;
+  border: solid 2px;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.7;
+  transition-duration: 200ms;
+}
+
+.options-icons:hover {
+  opacity: 1;
+}
+
+.widget-options-container {
+  width: fit-content;
+  position: absolute;
+  right: 2%;
+  background-color: hsl(210deg, 15%, 10.25%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+}

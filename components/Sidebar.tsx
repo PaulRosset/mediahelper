@@ -18,13 +18,13 @@ function Sidebar() {
           <Link href="/">Infos / Environment</Link>
         </li>
         <li>
-          <Link href="/">Media Decoding Capabilities</Link>
+          <Link href="/decoding">Media Decoding Capabilities</Link>
         </li>
         <li>
-          <Link href="/">Content Decryption Module detection</Link>
+          <Link href="/encryption">Content Decryption Module detection</Link>
         </li>
         <li>
-          <Link href="/">Environment</Link>
+          <Link href="/isobmff">ISOBMFF</Link>
         </li>
       </ul>
     </div>
