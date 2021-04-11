@@ -92,6 +92,10 @@ header h2 {
   min-height: 100%;
 }
 
+.burger-container {
+  display: none;
+}
+
 @media screen and (max-width: 767px) {
   .sidebar {
     display: none;
@@ -114,6 +118,7 @@ header h2 {
 
   .burger-container {
     border: none;
+    display: block;
   }
 
   .burger-logo {
