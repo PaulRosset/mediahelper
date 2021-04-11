@@ -1,0 +1,9 @@
+.durationISO8601-container-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.durationISO8601-container-result .result {
+  display: flex;
+}

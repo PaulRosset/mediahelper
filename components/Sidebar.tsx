@@ -1,30 +1,57 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-function Sidebar() {
+interface IProps {
+  isSidebarOpen: boolean;
+}
+
+function Sidebar({ isSidebarOpen }: IProps) {
+  const router = useRouter();
+
+  const getBubbleState = (route: string) =>
+    router.asPath === route ? "bubbles--active" : "bubbles--deactive";
+
   return (
-    <div className="sidebar">
+    <div className={isSidebarOpen ? "sidebar sideBarOpen" : "sidebar"}>
       <header>
-        <img
-          src="/play-button.png"
-          alt="swiss media knife logo"
-          width="64"
-          height="64"
-        />
-        <h2>BitHelper</h2>
-        <h3>The Cyber Swiss Media Knife</h3>
+        <h2>Media Helper</h2>
+        <h4>The Cyber Swiss Media Knife</h4>
       </header>
       <ul>
         <li>
-          <Link href="/">Infos / Environment</Link>
+          <Link href="/">
+            <div className="flex">
+              <div className={getBubbleState("/")} /> Infos
+            </div>
+          </Link>
         </li>
         <li>
-          <Link href="/decoding">Media Decoding Capabilities</Link>
+          <Link href="/decoding">
+            <div className="flex">
+              <div className={getBubbleState("/decoding")} /> Media Decoding
+            </div>
+          </Link>
         </li>
         <li>
-          <Link href="/encryption">Content Decryption Module detection</Link>
+          <Link href="/encryption">
+            <div className="flex">
+              <div className={getBubbleState("/encryption")} /> Encryption
+            </div>
+          </Link>
+        </li>
+        <li className="">
+          <Link href="/isobmff">
+            <div className="flex">
+              <div className={getBubbleState("/isobmff")} /> ISOBMFF
+            </div>
+          </Link>
         </li>
         <li>
-          <Link href="/isobmff">ISOBMFF</Link>
+          <Link href="/manifest">
+            <div className="flex">
+              <div className={getBubbleState("/manifest")} /> Manifest
+            </div>
+          </Link>
         </li>
       </ul>
     </div>

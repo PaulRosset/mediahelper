@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 import { Info } from "../Widgets/Info";
+import { Title } from "../Widgets/Title";
+
 import { applyDate } from "../../utils/applyDate";
 
 export const ChangeType = () => {
@@ -33,13 +35,14 @@ export const ChangeType = () => {
   return (
     <div className="widget-container">
       <div className="widget-header">
-        <h1>MediaSource Type support</h1>
+        <Title text="MediaSource Type support" anchor="isTypeSupported" />
         <Info url="https://developer.mozilla.org/en-US/docs/Web/API/MediaSource/isTypeSupported" />
       </div>
       <div>
         <div className="capabilities-input" style={{ width: "50%" }}>
           <label>codec:</label>
           <input
+            placeholder='video/mp4;codecs="avc1.4d401e"'
             type="text"
             className="onWhite"
             onChange={onCodecChange}

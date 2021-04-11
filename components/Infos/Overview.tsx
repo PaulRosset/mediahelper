@@ -1,6 +1,8 @@
+import { Title } from "../Widgets/Title";
+
 export const Overview = () => (
   <div className="widget-container">
-    <h1>Infos</h1>
+    <Title text="Infos" anchor="infos" />
     <p>
       This website is a tool that expose a bunch of different browser APIs and
       hand made tools related to Media playback capabilities in the browser.

@@ -3,9 +3,10 @@ import { useState } from "react";
 
 interface IProps {
   text: string;
+  color?: "black" | "white";
 }
 
-export const Copy = ({ text }: IProps) => {
+export const Copy = ({ text, color = "white" }: IProps) => {
   let isCopying = false;
   const [copied, setCopy] = useState(false);
 
@@ -27,7 +28,11 @@ export const Copy = ({ text }: IProps) => {
       {copied ? (
         <span className="result-decode--true">Copied!</span>
       ) : (
-        <img className="widget-option" src="/copy.svg" alt="copy" />
+        <img
+          className="widget-option"
+          src={color === "black" ? "/copy-black.svg" : "/copy.svg"}
+          alt="copy"
+        />
       )}
     </button>
   );

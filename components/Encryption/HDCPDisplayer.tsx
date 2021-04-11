@@ -22,7 +22,7 @@ export const HDCPDisplayer = ({ supportedHDCPVersions }: IProps) => {
           </span>
           <div>
             {hdcpVersionByKeysystem.statuses.map((status) => (
-              <div className="hdcpResult">
+              <div className="hdcpResult" key={status.version}>
                 {status.version} -- {status.versionStatus}
               </div>
             ))}

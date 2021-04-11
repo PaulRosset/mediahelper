@@ -12,7 +12,10 @@ import {
 } from "../../utils/emeConfiguration";
 import { getCDMNameFromKeySystem } from "../../utils/getCDMNameFromKeySytem";
 import { getWidevineSecurityLevel } from "../../utils/getWidevineSecurityLevel";
+
 import { Info } from "../Widgets/Info";
+import { Title } from "../Widgets/Title";
+import { Copy } from "../Widgets/Copy";
 
 import { HDCPDisplayer } from "./HDCPDisplayer";
 
@@ -27,6 +30,9 @@ export const EMESimpleDetection = () => {
     ISupportedStatusByKeySystemHDCP[] | null
   >(null);
   const [shouldShowHDCP, showHDCP] = useState(false);
+  const [errorHDCPDetection, setErrorHDCPDetection] = useState<string | null>(
+    null
+  );
 
   const onChangeHDCPDisplay = () => {
     showHDCP((prevState) => !prevState);
@@ -42,10 +48,15 @@ export const EMESimpleDetection = () => {
         setUnSupportedConfig(res.unSupportedConfigurations);
         checkHDCPSupportByVersion(res.supportedConfigurations)
           .then((res) => {
+            if (errorHDCPDetection !== null) {
+              setErrorHDCPDetection(null);
+            }
             setSupportedHDCPVersions(res);
           })
-          .catch((err) => {
-            console.warn("HDCP ERROR", err);
+          .catch((err: unknown) => {
+            if (err instanceof Error) {
+              setErrorHDCPDetection(err.message);
+            }
           });
       })
       .catch((err) => {
@@ -56,7 +67,7 @@ export const EMESimpleDetection = () => {
   return (
     <div className="widget-container">
       <div className="widget-header">
-        <h1>Quick KeySystems Detection</h1>
+        <Title text="Quick KeySystems Detection" anchor="simpleKeySystems" />
         <Info url="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/requestMediaKeySystemAccess" />
       </div>
       <div>
@@ -64,7 +75,14 @@ export const EMESimpleDetection = () => {
           <Fragment>
             <p>
               KeySystems <strong>tested</strong> with an <strong>open</strong>{" "}
-              configuration:
+              <a href="#" className="textCopy">
+                configuration{" "}
+                <Copy
+                  text={JSON.stringify(DEFAULT_KEYSYSTEM_CONFIGURATION)}
+                  color="black"
+                />
+              </a>
+              :
             </p>
             <div className="keySystemsDisplayer">
               {supportedConfig.map((config) => (
@@ -122,12 +140,21 @@ export const EMESimpleDetection = () => {
           </div>
         ) : null}
       </div>
-      <div onClick={onChangeHDCPDisplay} className="showHDCP">
-        <input type="checkbox" name="hdcp" checked={shouldShowHDCP} readOnly />
-        <label htmlFor="hdcp">
-          <strong>Show HDCP version support for supported keySystems</strong>
-        </label>
-      </div>
+      {errorHDCPDetection === null &&
+      supportedHDCPVersions !== null &&
+      supportedHDCPVersions.length > 0 ? (
+        <div onClick={onChangeHDCPDisplay} className="showHDCP">
+          <input
+            type="checkbox"
+            name="hdcp"
+            checked={shouldShowHDCP}
+            readOnly
+          />
+          <label htmlFor="hdcp">
+            <strong>Show HDCP version support for supported keySystems</strong>
+          </label>
+        </div>
+      ) : null}
       {shouldShowHDCP ? (
         <HDCPDisplayer supportedHDCPVersions={supportedHDCPVersions} />
       ) : null}

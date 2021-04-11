@@ -1,12 +1,14 @@
+import { Title } from "../Widgets/Title";
+
 export const Contribute = () => {
   return (
     <div className="widget-container">
-      <h1>Contribute</h1>
+      <Title text="Contribute" anchor="contribute" />
       <p>
-        Feel free to contribute and add our own tools here and share it with the
-        community!
+        Feel free to contribute and add your own tools here and share it with
+        the community!
       </p>
-      Github access. Drop a line here
+      <a href="https://github.com/PaulRosset/mediahelper">Contribute here.</a>
     </div>
   );
 };

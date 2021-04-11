@@ -4,7 +4,9 @@ import { applyDate } from "../../utils/applyDate";
 
 import { ResultCapabilities } from "./ResultCapabilities";
 import { Capabitities } from "./VideoCapabilities";
+
 import { Info } from "../Widgets/Info";
+import { Title } from "../Widgets/Title";
 
 interface IFormFields {
   videoContentType: string;
@@ -94,55 +96,57 @@ export const MediaCapabitities = () => {
   return (
     <div className="widget-container">
       <div className="widget-header">
-        <h1>Media Capabitities API</h1>
+        <Title text="Media Capabitities API" anchor="mediaCapaAPI" />
         <Info url="https://googlechrome.github.io/samples/media-capabilities/decoding-info.html" />
       </div>
       <div>
         <h4>Media Configuration:</h4>
-        <div className="mediaCapa-inputs">
-          <span>
-            <strong>Type:</strong>
-          </span>
-          <div>
-            <input
-              id="file"
-              type="radio"
-              checked={type === "file"}
-              onChange={onSetType("file")}
-            />
-            <label htmlFor="file">file</label>
+        <div className="flex primaryConfigAdvDecoding">
+          <div className="mediaCapa-inputs">
+            <span>
+              <strong>Type:</strong>
+            </span>
+            <div>
+              <input
+                id="file"
+                type="radio"
+                checked={type === "file"}
+                onChange={onSetType("file")}
+              />
+              <label htmlFor="file">file</label>
+            </div>
+            <div>
+              <input
+                id="mediaSource"
+                type="radio"
+                checked={type === "media-source"}
+                onChange={onSetType("media-source")}
+              />
+              <label htmlFor="mediaSource">media-source</label>
+            </div>
           </div>
-          <div>
-            <input
-              id="mediaSource"
-              type="radio"
-              checked={type === "media-source"}
-              onChange={onSetType("media-source")}
-            />
-            <label htmlFor="mediaSource">media-source</label>
-          </div>
-        </div>
-        <div className="mediaCapa-inputs">
-          <span>
-            <strong>BufferType:</strong>
-          </span>
-          <div>
-            <input
-              id="video"
-              type="checkbox"
-              checked={isVideoBufferChecked}
-              onChange={onToggleVideoBuffer}
-            />
-            <label htmlFor="video">video</label>
-          </div>
-          <div>
-            <input
-              id="audio"
-              type="checkbox"
-              checked={isAudioBufferChecked}
-              onChange={onToggleAudioBuffer}
-            />
-            <label htmlFor="audio">audio</label>
+          <div className="mediaCapa-inputs">
+            <span>
+              <strong>BufferType:</strong>
+            </span>
+            <div>
+              <input
+                id="video"
+                type="checkbox"
+                checked={isVideoBufferChecked}
+                onChange={onToggleVideoBuffer}
+              />
+              <label htmlFor="video">video</label>
+            </div>
+            <div>
+              <input
+                id="audio"
+                type="checkbox"
+                checked={isAudioBufferChecked}
+                onChange={onToggleAudioBuffer}
+              />
+              <label htmlFor="audio">audio</label>
+            </div>
           </div>
         </div>
       </div>
@@ -152,26 +156,51 @@ export const MediaCapabitities = () => {
             <Capabitities title="Video">
               <div className="capabilities-input">
                 <label>contentType</label>
-                <input type="text" ref={register} name="videoContentType" />
+                <input
+                  type="text"
+                  ref={register}
+                  name="videoContentType"
+                  placeholder='video/mp4;codecs="avc1.4d401e"'
+                />
               </div>
               <div className="capabilties-grouped">
                 <div className="capabilities-input">
                   <label>width</label>
-                  <input type="text" ref={register} name="width" />
+                  <input
+                    type="text"
+                    ref={register}
+                    name="width"
+                    placeholder="1920"
+                  />
                 </div>
                 <div className="capabilities-input">
                   <label>height</label>
-                  <input type="text" ref={register} name="height" />
+                  <input
+                    type="text"
+                    ref={register}
+                    name="height"
+                    placeholder="1080"
+                  />
                 </div>
               </div>
               <div className="capabilties-grouped">
                 <div className="capabilities-input">
                   <label>bitrate</label>
-                  <input type="text" ref={register} name="videoBitrate" />
+                  <input
+                    type="text"
+                    ref={register}
+                    name="videoBitrate"
+                    placeholder="4500000"
+                  />
                 </div>
                 <div className="capabilities-input">
                   <label>framerate</label>
-                  <input type="text" ref={register} name="framerate" />
+                  <input
+                    type="text"
+                    ref={register}
+                    name="framerate"
+                    placeholder="50"
+                  />
                 </div>
               </div>
             </Capabitities>
@@ -180,20 +209,40 @@ export const MediaCapabitities = () => {
             <Capabitities title="Audio">
               <div className="capabilities-input">
                 <label>contentType</label>
-                <input type="text" ref={register} name="audioContentType" />
+                <input
+                  type="text"
+                  ref={register}
+                  name="audioContentType"
+                  placeholder='audio/mp4;codecs="mp4a.40.2"'
+                />
               </div>
               <div className="capabilities-input">
                 <label>channels</label>
-                <input type="text" ref={register} name="channels" />
+                <input
+                  type="text"
+                  ref={register}
+                  name="channels"
+                  placeholder="2"
+                />
               </div>
               <div className="capabilties-grouped">
                 <div className="capabilities-input">
                   <label>bitrate</label>
-                  <input type="text" ref={register} name="audioBitrate" />
+                  <input
+                    type="text"
+                    ref={register}
+                    name="audioBitrate"
+                    placeholder="192000"
+                  />
                 </div>
                 <div className="capabilities-input">
                   <label>samplerate</label>
-                  <input type="text" ref={register} name="samplerate" />
+                  <input
+                    type="text"
+                    ref={register}
+                    name="samplerate"
+                    placeholder="48000"
+                  />
                 </div>
               </div>
             </Capabitities>

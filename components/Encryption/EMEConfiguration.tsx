@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { IMediaKeySystemConfiguration } from "../../utils/emeConfiguration";
 import { getCDMNameFromKeySystem } from "../../utils/getCDMNameFromKeySytem";
@@ -35,6 +35,10 @@ export const EMEConfiguration = ({ EMEConfig, setEMEConfig }: IProps) => {
   const toggleShowingPreciseConfig = () => {
     showPreciseConfig((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    setResult(null);
+  }, [EMEConfig]);
 
   const checkConfiguration = () => {
     navigator

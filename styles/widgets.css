@@ -15,10 +15,6 @@
   margin: 20px 0;
 }
 
-.widget-container h1 {
-  text-decoration: underline;
-}
-
 .widget-options-copy {
   position: absolute;
   right: 5%;
@@ -39,6 +35,24 @@
   width: 100%;
   display: inline-flex;
   justify-content: space-between;
+}
+
+.title {
+  color: #000;
+  text-decoration: none;
+}
+
+.title span {
+  visibility: hidden;
+  font-size: 17px;
+}
+
+.title:hover {
+  text-decoration: underline;
+}
+
+.title:hover span {
+  visibility: visible;
 }
 
 .mediaCapa-inputs {

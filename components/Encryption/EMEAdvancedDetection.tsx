@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 import { Info } from "../Widgets/Info";
+import { Title } from "../Widgets/Title";
+
 import { FormEME } from "./FormEME";
 import { EMEConfiguration } from "./EMEConfiguration";
 import {
@@ -85,7 +87,10 @@ export const EMEAdvancedDetection = () => {
   return (
     <div className="widget-container">
       <div className="widget-header">
-        <h1>Advanced KeySystems Detection</h1>
+        <Title
+          text="Advanced KeySystems Detection"
+          anchor="advancedKeySystems"
+        />
         <Info url="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/requestMediaKeySystemAccess" />
       </div>
       <div>

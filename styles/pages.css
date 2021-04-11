@@ -5,10 +5,6 @@
   margin: 20px 0;
 }
 
-.widget-container h1 {
-  text-decoration: underline;
-}
-
 .persist-widget-container {
   position: absolute;
   display: inline-flex;

@@ -140,3 +140,37 @@
   border-top: solid 2px;
   padding-top: 10px;
 }
+
+@media screen and (max-width: 550px) {
+  .keySystemsDisplayer {
+    font-size: small;
+  }
+
+  .advancedDetectionContainer {
+    flex-direction: column;
+  }
+
+  .formEME {
+    width: 100%;
+  }
+
+  .codeDisplayPosition {
+    width: 100%;
+  }
+
+  .primaryConfigAdvDecoding {
+    flex-direction: column;
+  }
+
+  .mediaCapa-inputs:last-child {
+    border: none;
+  }
+
+  .capabilities-container {
+    flex-direction: column;
+  }
+
+  .video-capabilities-container {
+    width: 100%;
+  }
+}
