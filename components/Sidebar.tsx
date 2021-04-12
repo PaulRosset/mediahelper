@@ -15,7 +15,7 @@ function Sidebar({ isSidebarOpen }: IProps) {
     <div className={isSidebarOpen ? "sidebar sideBarOpen" : "sidebar"}>
       <header>
         <h2>Media Helper</h2>
-        <h4>The Cyber Swiss Media Knife</h4>
+        <h4>The Swiss Army Media Knife</h4>
       </header>
       <ul>
         <li>
