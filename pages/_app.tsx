@@ -11,6 +11,7 @@ import "../styles/widgets.css";
 import "../styles/decryption.css";
 import "../styles/isobmff.css";
 import "../styles/manifest.css";
+import "../styles/samples.css";
 
 import Sidebar from "../components/Sidebar";
 import { EnvDetection } from "../components/EnvDetection";

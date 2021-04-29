@@ -11,6 +11,8 @@
     "bowser": "^2.11.0",
     "copy-text-to-clipboard": "^3.0.1",
     "isobmff-inspector": "^0.2.0",
+    "m3u8-parser": "^4.6.0",
+    "mpd-parser": "^0.16.0",
     "next": "latest",
     "next-transpile-modules": "^6.3.0",
     "react": "^17.0.1",
@@ -18,7 +20,8 @@
     "react-hook-form": "^6.15.5",
     "react-json-view": "^1.21.3",
     "react-window": "^1.8.6",
-    "rx-player": "3.24.0"
+    "rx-player": "3.24.0",
+    "shaka-player": "^3.0.10"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",

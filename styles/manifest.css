@@ -7,3 +7,15 @@
 .durationISO8601-container-result .result {
   display: flex;
 }
+
+.player-choice {
+  display: flex;
+}
+
+.player-choice div {
+  margin: 2px;
+}
+
+.player-choice .info {
+  margin-left: 10px;
+}

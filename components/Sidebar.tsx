@@ -53,6 +53,13 @@ function Sidebar({ isSidebarOpen }: IProps) {
             </div>
           </Link>
         </li>
+        <li>
+          <Link href="/samples">
+            <div className="flex">
+              <div className={getBubbleState("/samples")} /> Samples Files
+            </div>
+          </Link>
+        </li>
       </ul>
     </div>
   );
