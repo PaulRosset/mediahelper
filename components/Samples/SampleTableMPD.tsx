@@ -41,7 +41,7 @@ export const SamplesTableMPD = () => {
         <table>
           <thead>
             <tr>
-              <th colSpan="3">DASH Samples (.mpd)</th>
+              <th colSpan={3}>DASH Samples (.mpd)</th>
             </tr>
           </thead>
           <tbody>

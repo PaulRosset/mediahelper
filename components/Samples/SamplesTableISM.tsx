@@ -35,7 +35,7 @@ export const SamplesTableISM = () => {
         <table>
           <thead>
             <tr>
-              <th colSpan="3">Smooth Samples (.ism)</th>
+              <th colSpan={3}>Smooth Samples (.ism)</th>
             </tr>
           </thead>
           <tbody>

@@ -73,7 +73,7 @@ export const SamplesTableHLS = () => {
         <table>
           <thead>
             <tr>
-              <th colSpan="3">HLS Samples (.m3u8)</th>
+              <th colSpan={3}>HLS Samples (.m3u8)</th>
             </tr>
           </thead>
           <tbody>

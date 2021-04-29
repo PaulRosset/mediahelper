@@ -29,7 +29,7 @@ export const SamplesTableOthers = () => {
         <table>
           <thead>
             <tr>
-              <th colSpan="3">Others Samples (.mp4/.webm/.ogg)</th>
+              <th colSpan={3}>Others Samples (.mp4/.webm/.ogg)</th>
             </tr>
           </thead>
           <tbody>
