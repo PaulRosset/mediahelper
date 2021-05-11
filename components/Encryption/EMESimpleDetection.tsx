@@ -39,9 +39,7 @@ export const EMESimpleDetection = () => {
   };
 
   useEffect(() => {
-    const keySystemsConfigs = createEMEConfiguration(
-      DEFAULT_KEYSYSTEM_CONFIGURATION
-    );
+    const keySystemsConfigs = createEMEConfiguration();
     exposeSupportedEMEConfiguration(keySystemsConfigs)
       .then((res) => {
         setSupportedConfig(res.supportedConfigurations);
@@ -78,7 +76,15 @@ export const EMESimpleDetection = () => {
               <a href="#" className="textCopy">
                 configuration{" "}
                 <Copy
-                  text={JSON.stringify(DEFAULT_KEYSYSTEM_CONFIGURATION)}
+                  text={JSON.stringify(
+                    {
+                      widevine: DEFAULT_KEYSYSTEM_CONFIGURATION(
+                        "com.widevine.alpha"
+                      ),
+                      others: DEFAULT_KEYSYSTEM_CONFIGURATION(""),
+                    },
+                    (_, value) => (typeof value === "undefined" ? null : value)
+                  )}
                   color="black"
                 />
               </a>

@@ -4,7 +4,7 @@ export type SessionType = "temporary" | "persistent-license";
 
 export interface IMediaKeySystemMediaCapability {
   contentType: string;
-  robustness: string;
+  robustness: string | undefined;
 }
 
 export interface IMediaKeySystemConfiguration {
@@ -76,7 +76,7 @@ const keySystems = [
   "com.widevine.alpha",
 ];
 
-const ROBUSTNESSES = [
+const WIDEVINE_ROBUSTNESSES = [
   "HW_SECURE_ALL",
   "HW_SECURE_DECODE",
   "HW_SECURE_CRYPTO",
@@ -99,30 +99,38 @@ export interface IResultEMEConfiguration {
   unSupportedConfigurations: IEMEConfiguration[];
 }
 
-export const DEFAULT_KEYSYSTEM_CONFIGURATION: IMediaKeySystemConfiguration = {
-  label: "",
-  initDataTypes: ["cenc"],
-  audioCapabilities: ROBUSTNESSES.map((robustness) => ({
-    contentType: 'audio/mp4;codecs="mp4a.40.2"',
-    robustness,
-  })),
-  videoCapabilities: ROBUSTNESSES.map((robustness) => ({
-    contentType: 'video/mp4;codecs="avc1.4d401e"',
-    robustness,
-  })),
-  distinctiveIdentifier: "optional",
-  persistentState: "optional",
-  sessionTypes: ["temporary"],
+export const DEFAULT_KEYSYSTEM_CONFIGURATION = (
+  keySystem: string
+): IMediaKeySystemConfiguration => {
+  const ROBUSTNESSES =
+    keySystem === "com.widevine.alpha" ? WIDEVINE_ROBUSTNESSES : [undefined];
+  return {
+    label: "",
+    initDataTypes: ["cenc"],
+    audioCapabilities: (ROBUSTNESSES as any).map(
+      (robustness: string | undefined) => ({
+        contentType: 'audio/mp4;codecs="mp4a.40.2"',
+        robustness,
+      })
+    ),
+    videoCapabilities: (ROBUSTNESSES as any).map(
+      (robustness: string | undefined) => ({
+        contentType: 'video/mp4;codecs="avc1.4d401e"',
+        robustness,
+      })
+    ),
+    distinctiveIdentifier: "optional",
+    persistentState: "optional",
+    sessionTypes: ["temporary"],
+  };
 };
 
-export function createEMEConfiguration(
-  keySystemConfig: IMediaKeySystemConfiguration
-): IEMEConfiguration[] {
+export function createEMEConfiguration(): IEMEConfiguration[] {
   return keySystems.map<IEMEConfiguration>((keySystem) => ({
     keySystem,
     keySystemConfig: [
       {
-        ...keySystemConfig,
+        ...DEFAULT_KEYSYSTEM_CONFIGURATION(keySystem),
         label: keySystem,
       },
     ],
