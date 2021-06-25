@@ -74,6 +74,7 @@ const keySystems = [
   "com.chromecast.playready",
   "com.apple.fps.1_0",
   "com.widevine.alpha",
+  "com.nagra.prm",
 ];
 
 const WIDEVINE_ROBUSTNESSES = [
