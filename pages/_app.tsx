@@ -59,6 +59,15 @@ function MyApp({ Component, pageProps }: AppProps) {
           href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="preload"
+          as="style"
+          onLoad={"this.onload=null;this.rel='stylesheet'" as any}
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}

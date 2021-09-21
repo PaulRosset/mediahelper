@@ -8,7 +8,12 @@ export const Contribute = () => {
         Feel free to contribute and add your own tools here and share it with
         the community!
       </p>
-      <a href="https://github.com/PaulRosset/mediahelper">Contribute here.</a>
+      <a
+        href="https://github.com/PaulRosset/mediahelper"
+        style={{ color: "#000", textDecoration: "underline" }}
+      >
+        Contribute here. <i className="fab fa-github"></i>
+      </a>
     </div>
   );
 };
