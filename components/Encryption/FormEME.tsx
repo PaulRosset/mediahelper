@@ -40,19 +40,14 @@ export const FormEME = ({
       sessionTypeTemporary: true,
     },
   });
-  const [distinctiveId, setDistinctiveId] = useState<MediaKeysRequirement>(
-    "optional"
-  );
-  const [persistentState, setPersistentState] = useState<MediaKeysRequirement>(
-    "optional"
-  );
+  const [distinctiveId, setDistinctiveId] =
+    useState<MediaKeysRequirement>("optional");
+  const [persistentState, setPersistentState] =
+    useState<MediaKeysRequirement>("optional");
 
   useEffect(() => {
-    const {
-      keySystem,
-      sessionTypePersistent,
-      sessionTypeTemporary,
-    } = getValues();
+    const { keySystem, sessionTypePersistent, sessionTypeTemporary } =
+      getValues();
     const sessionTypes: SessionType[] = [];
     if (sessionTypeTemporary) sessionTypes.push("temporary");
     if (sessionTypePersistent) sessionTypes.push("persistent-license");
@@ -81,18 +76,18 @@ export const FormEME = ({
   };
 
   const onAddAudioCapabilities = () => {
-    const { videoContentType, videoRobustness } = getValues();
+    const { audioContentType, audioRobustness } = getValues();
     onAddAudioCapa({
-      contentType: videoContentType,
-      robustness: videoRobustness,
+      contentType: audioContentType,
+      robustness: audioRobustness,
     });
   };
 
   const onAddVideoCapabilities = () => {
-    const { audioContentType, audioRobustness } = getValues();
+    const { videoContentType, videoRobustness } = getValues();
     onAddVideoCapa({
-      contentType: audioContentType,
-      robustness: audioRobustness,
+      contentType: videoContentType,
+      robustness: videoRobustness,
     });
   };
 
