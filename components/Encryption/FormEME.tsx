@@ -80,7 +80,7 @@ export const FormEME = ({
     addInitDataTypes(initDataTypes);
   };
 
-  const onAddVideoCapabilities = () => {
+  const onAddAudioCapabilities = () => {
     const { videoContentType, videoRobustness } = getValues();
     onAddAudioCapa({
       contentType: videoContentType,
@@ -88,7 +88,7 @@ export const FormEME = ({
     });
   };
 
-  const onAddAudioCapabilities = () => {
+  const onAddVideoCapabilities = () => {
     const { audioContentType, audioRobustness } = getValues();
     onAddVideoCapa({
       contentType: audioContentType,
